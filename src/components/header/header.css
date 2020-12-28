@@ -1,6 +1,11 @@
 .header{
     display:flex;
     justify-content: space-between;
+    margin:10px auto;
+}
+
+hr{
+    margin:25px auto;
 }
 
 .header_name{
@@ -19,7 +24,7 @@
     width:50px;
 }
 
-h1{
+.Grilla{
     margin-left:10px;
     margin-top:10px;
     color:rgba(2, 103, 255, 0.65);

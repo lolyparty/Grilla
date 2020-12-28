@@ -10,7 +10,7 @@ const Header = ()=>{
             <div className="grilla_icon">
                 <img src={logo} alt="Grilla Icon" className="icon"/> 
             </div>
-            <h1>Grilla</h1>
+            <h1 className="Grilla">Grilla</h1>
         </div>
         <Searchrecipe/>
     </div>

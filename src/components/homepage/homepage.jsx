@@ -8,6 +8,7 @@ const Homepage = ()=>{
 
     return <div className="home">
         <Header />
+        <hr/>
         <Recipelist />
     </div>
 }
