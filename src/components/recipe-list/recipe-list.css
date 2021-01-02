@@ -9,14 +9,14 @@
 
 .recipe_url{
     margin:10px 20px;
-    box-shadow: 1px 2px 15px #b6b6b6;
+    box-shadow: 1px 1px 5px #b6b6b6;
     border-radius: 10px;
     transition: all .7s;
 }
 
 .recipe_url:hover{
     transform: scale(1.01);
-    box-shadow: 1px 2px 15px #a0a0a0;
+    box-shadow: 1px 1px 5px #a0a0a0;
 }
 
 .recipe_item{
