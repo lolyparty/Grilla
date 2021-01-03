@@ -1,8 +1,9 @@
 import React from 'react'
 import './recipe-list.css'
 
-const Recipe_List_Item = ()=>{
-    return <div  className="recipe_list"> <a href="" className="recipe_url">
+const RecipeListItem = ()=>{
+    return <div  className="recipe_list">
+     <a href="" className="recipe_url">
         <div className="recipe_item">
             <div className="img_div">
                 <img src="" alt="some image"/>
@@ -125,4 +126,4 @@ const Recipe_List_Item = ()=>{
     </div>
 }
 
-export {Recipe_List_Item}
+export {RecipeListItem}

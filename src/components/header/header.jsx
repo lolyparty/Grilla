@@ -3,7 +3,7 @@ import './header.css'
 import {Searchrecipe} from './searchrecipe/searchrecipe';
 import logo from './dish-fork-and-knife.svg'
 
-const Header = ()=>{
+const Header = ({search, changed,inputValue})=>{
 
     return <div className="header">
         <div className="header_name">
@@ -12,7 +12,11 @@ const Header = ()=>{
             </div>
             <h1 className="Grilla">Grilla</h1>
         </div>
-        <Searchrecipe/>
+        <Searchrecipe 
+            Search={search}
+            changed={changed}
+            inputValue={inputValue}
+        />
     </div>
 }
 

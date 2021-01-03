@@ -1,10 +1,10 @@
 import React from 'react'
 import './searchrecipe.css'
 
-const Searchrecipe = () =>{
+const Searchrecipe = ({changed, Search, inputValue}) =>{
     return <div className="search">
-        <input type="text" placeholder="Search Recipe" name="Search recipe" className="search_input"/>
-        <button className="btn">Search</button> 
+        <input type="text" onChange={changed} placeholder="Search Recipe" name="Search recipe" className="search_input" value={inputValue}/>
+        <button onClick={Search} className="btn">Search</button> 
     </div>
 }
 
