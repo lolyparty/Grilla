@@ -12,7 +12,7 @@
     box-shadow: 1px 1px 5px #b6b6b6;
     border-radius: 10px;
     transition: all .7s;
-    width:400px;
+    width:420px;
 }
 
 .recipe_url:hover{
@@ -41,7 +41,7 @@ img{
 
 .recipe_name{
     font-size:2rem;
-    background:-webkit-linear-gradient(90deg, rgba(35, 0, 163, 0.621), rgba(10, 226, 255, 0.541));
+    background:-webkit-linear-gradient(270deg, rgba(35, 0, 163, 0.621), rgba(10, 226, 255, 0.541));
     -webkit-background-clip:text;
     background-clip:text;
     -webkit-text-fill-color:transparent;
