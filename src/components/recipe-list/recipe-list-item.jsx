@@ -1,8 +1,9 @@
 import React from 'react'
 import './recipe-list.css'
+import {Link} from 'react-router-dom'
 
 const RecipeListItem = ({id,image_url,title,publisher})=>{
-    return <a href={id} className="recipe_url">
+    return <Link to={`/${id}`} className="recipe_url">
                     <div className="recipe_item">
                         <div className="img_div">
                             <img src={image_url} alt={title}/>
@@ -12,7 +13,7 @@ const RecipeListItem = ({id,image_url,title,publisher})=>{
                             <p className="author">{publisher}</p>
                         </div>
                     </div>
-                </a>
+                </Link>
 }
 
 export {RecipeListItem}

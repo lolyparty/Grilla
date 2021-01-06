@@ -2,6 +2,9 @@ import React from 'react'
 import './homepage.css'
 import { Recipelist } from '../recipe-list/recipe-list'
 import { Header } from '../header/header'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {RecipeDetails} from '../recipe-details/recipe-details'
+
 
 const Homepage = ()=>{
 
@@ -20,15 +23,24 @@ const Homepage = ()=>{
         setInput(value)
     }
 
-    return <div className="home">
+    return <Router>
+
+    <div className="home">
         <Header 
             search={getSearch}
             changed={changed}
             inputValue={input}
         />
         <hr/>
-        <Recipelist search={search} />
+        
+      <Switch>
+        <Route exact path='/'>
+            <Recipelist search={search} />
+        </Route>
+        <Route path='/:id' component={RecipeDetails} />
+      </Switch>
     </div>
+    </Router>
 }
 
 export { Homepage }
