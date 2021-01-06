@@ -40,7 +40,7 @@ img{
 
 .recipe_name{
     font-size:2rem;
-    background:-webkit-linear-gradient(270deg, rgba(35, 0, 163, 0.621), rgba(10, 226, 255, 0.541));
+    background:-webkit-linear-gradient(270deg, rgba(20, 0, 92, 0.621), rgba(0, 182, 206, 0.541));
     -webkit-background-clip:text;
     background-clip:text;
     -webkit-text-fill-color:transparent;
