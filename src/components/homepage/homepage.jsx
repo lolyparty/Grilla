@@ -37,7 +37,7 @@ const Homepage = ()=>{
         <Route exact path='/'>
             <Recipelist search={search} />
         </Route>
-        <Route path='/:id' component={RecipeDetails} />
+        <Route  path='/:id' component={RecipeDetails} />
       </Switch>
     </div>
     </Router>
