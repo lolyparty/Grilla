@@ -2,7 +2,6 @@ import React from 'react'
 import './recipe-list.css'
 import {RecipeListItem} from './recipe-list-item'
 import axios from 'axios'
-import {Api_Key} from '../../config'
 
 const Recipelist = ({search})=>{
 
@@ -10,7 +9,6 @@ const Recipelist = ({search})=>{
 
     const [isLoading, setLoading] = React.useState(false)
 
-    
 
     React.useEffect(()=>{
         const getRecipe = async () =>{
@@ -18,7 +16,7 @@ const Recipelist = ({search})=>{
                 if(search !== ''){
                     searchResults([])
                     setLoading(true)
-                    const data = await axios.get(`https://forkify-api.herokuapp.com/api/v2/recipes?search=${search}&key=${Api_Key}`)
+                    const data = await axios.get(`https://forkify-api.herokuapp.com/api/v2/recipes?search=${search}&key=${process.env.REACT_APP_API_KEY}`)
                     searchResults(data.data.data.recipes)
                     setLoading(false)
                 }
