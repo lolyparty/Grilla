@@ -9,7 +9,7 @@ const RecipeListItem = ({id,image_url,title,publisher})=>{
                             <img src={image_url} alt={title}/>
                         </div>
                         <div className="recipe_details">
-                            <h1 className="recipe_name">{title.slice(0,12)}...</h1>
+                            <h1 className="recipe_name">{title.slice(0,15)}...</h1>
                             <p className="author">{publisher}</p>
                         </div>
                     </div>
