@@ -1,5 +1,4 @@
 import React from 'react'
-import './recipe-details.css'
 import axios from 'axios'
 
 const RecipeDetails = ({match})=>{

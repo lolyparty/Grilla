@@ -1,5 +1,4 @@
 import React from 'react'
-import './homepage.css'
 import { Recipelist } from '../recipe-list/recipe-list'
 import { Header } from '../header/header'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
@@ -25,7 +24,7 @@ const Homepage = ()=>{
 
     return <Router>
 
-    <div className="home">
+    <div className="bg-grayish rounded-2xl shadow p-10 min-h-screen">
         <Header 
             search={getSearch}
             changed={changed}

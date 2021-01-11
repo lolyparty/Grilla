@@ -29,8 +29,8 @@ const Recipelist = ({search})=>{
         getRecipe()
     },[search])
 
-    return <div className="recipe_list">
-            {isLoading && <div className="loading"></div>}
+    return <div className="p-1 flex flex-wrap justify-evenly">
+            {isLoading && <div className="w-16 h-16 rounded-full border-transparent border-4 loading my-2 mx-auto animate-spin"></div>}
             {results.map(recipe=><RecipeListItem key={recipe.id} {...recipe}/>)}
         </div>
 }

@@ -1,11 +1,4 @@
-*{
-    overflow-x:hidden;
-}
 
 .app{
     background:linear-gradient(190deg, rgba(35, 0, 163, 0.621), rgba(10, 226, 255, 0.541));
-    /* width:100vw;
-    height:100vh; */
-    padding:40px;
-    overflow: hidden;
 }

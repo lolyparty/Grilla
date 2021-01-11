@@ -5,7 +5,7 @@ import {Homepage} from './homepage/homepage'
 
 function App() {
   return (
-    <div className="app">
+    <div className="app p-4 md:p-8 overflow-hidden">
         <Homepage />
        </div>
   );
