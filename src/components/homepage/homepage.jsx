@@ -20,7 +20,6 @@ const Homepage = ()=>{
     const changed =(e)=>{
         const {value} = e.target
         setInput(value)
-        console.log(value, input)
     }
 
     return <Router>
