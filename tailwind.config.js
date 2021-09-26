@@ -6,7 +6,7 @@ module.exports = {
       colors:{
         grayish:'#f3f3f3',
         textblue:'rgba(0, 87, 218, 0.65)',
-        spinblue:'rgba(10, 226, 255, 0.541)'
+        'background1':'rgba(2, 103, 255, 0.65)'
       },
       scale:{
         '101':'1.01'

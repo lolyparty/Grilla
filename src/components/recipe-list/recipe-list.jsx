@@ -59,7 +59,7 @@ const Recipelist = ({search})=>{
         </div>
         <div className="p-8 navigationBtns justify-center flex w-full"> 
 
-        <div className="w-full flex justify-center">{numberofPages === 1 || curPage > 1 ? <button className="flex py-1 px-9 focus:outline-none rounded-xl border-2 border-textblue text-textblue text-lg" onClick={prevPage}><img className="align-middle w-8" src={leftArrow} alt="Prev page" />&nbsp; Prev </button> : null}</div>
+        <div className="w-full flex justify-center">{curPage > 1 ? <button className="flex py-1 px-9 focus:outline-none rounded-xl border-2 border-textblue text-textblue text-lg" onClick={prevPage}><img className="align-middle w-8" src={leftArrow} alt="Prev page" />&nbsp; Prev </button> : null}</div>
 
         <div className="w-full flex justify-center">{curPage < numberofPages ? <button className="flex py-1 px-9 focus:outline-none rounded-xl transition duration-1000 border-2 border-textblue text-textblue text-lg" onClick={nextPage}>Next &nbsp;<img className="align-middle w-8" src={rightArrow} alt="Next page" /></button> : null}</div>
         </div>
