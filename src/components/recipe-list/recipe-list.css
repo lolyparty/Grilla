@@ -11,3 +11,21 @@
     border-right-color:rgba(10, 226, 255, 0.541);
     border-left-color:rgba(10, 226, 255, 0.541);
 }
+
+.skeleton{
+    width:200px;
+    height: 35px;
+    background: rgb(254, 254, 254);
+    position :absolute;
+    animation: loader 1s infinite;
+}
+
+@keyframes loader{
+    0%{
+        transform:translateX(-50%) rotate(125deg);
+
+    }
+    100%{
+        transform:translateX(200%) rotate(125deg);
+    }
+}
