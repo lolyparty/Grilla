@@ -4,6 +4,7 @@ import {RecipeListItem} from './recipe-list-item'
 import axios from 'axios'
 import leftArrow from './left-arrow.svg'
 import rightArrow from './right-arrow.svg'
+import {SkeletonLoader} from  './SkeletonLoader'
 
 const Recipelist = ({search})=>{
 
@@ -14,6 +15,7 @@ const Recipelist = ({search})=>{
     const [curPage, setPage] = React.useState(1)
 
     const [numberofPages, setnumberofPages] = React.useState(0)
+
 
 
     React.useEffect(()=>{
@@ -47,9 +49,9 @@ const Recipelist = ({search})=>{
         setPage(curPage + 1)
     }
 
-    return <div>
+ return <div>
+            {isLoading && <SkeletonLoader />}
         <div className="p-1 flex flex-wrap justify-evenly">
-            {isLoading && <div className="w-16 h-16 rounded-full border-transparent border-4 loading my-2 mx-auto animate-spin"></div>}
             {results.slice(curPage * 10 - 10, curPage * 10).map(recipe=>{
                 return <RecipeListItem key={recipe.id} {...recipe}/>
             })}
