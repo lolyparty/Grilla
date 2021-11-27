@@ -2,6 +2,7 @@ import React from 'react'
 import { Recipelist } from '../recipe-list/recipe-list'
 import { Header } from '../header/header'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import ScrollToTop from '../scrollToTop'
 import {RecipeDetails} from '../recipe-details/recipe-details'
 
 
@@ -24,14 +25,15 @@ const Homepage = ()=>{
 
     return <Router>
 
-    <div className="bg-grayish rounded-2xl shadow p-10 min-h-screen">
+    <div className="bg-grayish rounded-2xl shadow p-8 min-h-screen mdd:p-4 xsm:px-1.5">
         <Header 
             search={getSearch}
             changed={changed}
             inputValue={input}
         />
-        <hr/>
-        
+        <hr className="mx-auto my-6"/>
+                
+        <ScrollToTop />
       <Switch>
         <Route exact path='/'>
             <Recipelist search={search} />
