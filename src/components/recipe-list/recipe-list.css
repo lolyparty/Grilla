@@ -29,3 +29,11 @@
         transform:translateX(200%) rotate(125deg);
     }
 }
+
+.details_name{
+    background:linear-gradient(355deg,rgba(20, 0, 92, 1), rgba(0, 182, 206, 1));
+}
+
+.overlay{
+    background:rgba(0, 105, 241, 0.15);
+}

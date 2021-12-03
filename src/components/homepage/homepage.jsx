@@ -25,13 +25,13 @@ const Homepage = ()=>{
 
     return <Router>
 
-    <div className="bg-grayish rounded-2xl shadow p-8 min-h-screen mdd:p-4 xsm:px-1.5">
+    <div className="bg-grayish rounded-2xl shadow p-8 pt-4 max-w-120 min-h-screen mdd:p-4 xsm:px-1.5 mx-auto">
         <Header 
             search={getSearch}
             changed={changed}
             inputValue={input}
         />
-        <hr className="mx-auto my-6"/>
+        <hr className="mx-auto mt-3 mb-6"/>
                 
         <ScrollToTop />
       <Switch>

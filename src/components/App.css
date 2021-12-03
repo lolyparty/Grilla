@@ -1,6 +1,29 @@
 
 .app{
     background:linear-gradient(190deg, rgba(35, 0, 163, 0.621), rgba(10, 226, 255, 0.541));
+    
+
+
+
+/*  */
+}
+
+.likeButton{
+    cursor:pointer;
+    transition: 1s;
+}
+
+.clicked{
+    animation: clicking 1s ease forward;
+}
+
+@keyframes clicking{
+    0%{
+        transform: scale(1.2)
+    }
+    100%{
+        transform: scale(1)
+    }
 }
 
 /* #0057daa6 */

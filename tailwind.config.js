@@ -6,7 +6,8 @@ module.exports = {
       colors:{
         grayish:'#f3f3f3',
         textblue:'rgba(0, 87, 218, 0.65)',
-        'background1':'rgba(2, 103, 255, 0.65)'
+        'background1':'rgba(2, 103, 255, 0.65)',
+        'ingredientColor':'#0A5F98'
       },
       scale:{
         '101':'1.01'
@@ -34,11 +35,18 @@ module.exports = {
         // => @media (max-width: 639px) { ... }
         'xsm':{'max':'590px'},
         'xxsm':{'max':'455px'}
+      },
+      maxHeight:{
+        '100': '29rem'
+      },
+      maxWidth:{
+        '120':'87.5rem'
       }
-    },
   },
   variants: {
-    extend: {},
+    extend: {
+    }
   },
   plugins: [],
+}
 }
