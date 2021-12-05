@@ -4,7 +4,7 @@ import {Searchrecipe} from './searchrecipe/searchrecipe';
 import logo from './Grilla-Icon.svg'
 import {Likes} from './likes/likes'
 
-const Header = ({search, changed,inputValue})=>{
+const Header = ({search, changed,inputValue, keyPress})=>{
 
     return <div className="header flex my-2 mx-auto justify-between xsm:justify-start smm:space-x-1">
         <div className="flex p-4 mdd:px-2 xsm:pr-0.5">
@@ -17,6 +17,7 @@ const Header = ({search, changed,inputValue})=>{
             Search={search}
             changed={changed}
             inputValue={inputValue}
+            keyPress={keyPress}
         />
         <Likes />
     </div>
