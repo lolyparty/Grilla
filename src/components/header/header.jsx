@@ -7,7 +7,7 @@ import {Likes} from './likes/likes'
 const Header = ({search, changed,inputValue, keyPress})=>{
 
     return <div className="header flex my-2 mx-auto justify-between xsm:justify-start smm:space-x-1">
-        <div className="flex p-4 mdd:px-2 xsm:pr-0.5">
+        <div className="flex p-4 mdd:px-2 xsm:pr-0.5 ml-4">
             <div className="rounded-full">
                 <img src={logo} alt="Grilla Icon" className="icon w-20 h-20 md:w-16 md:h-16 xsm:w-12 xsm:h-12"/> 
             </div>

@@ -16,6 +16,7 @@ const Homepage = ()=>{
         if(e.key === 'Enter'){
                 setSearch(input)
                 setInput('')
+                console.log(search, input)
             }
     }
 
@@ -25,6 +26,7 @@ const Homepage = ()=>{
         e.preventDefault()
         setSearch(input)
         setInput('')
+        console.log(search, input)
     }
 
     const changed =(e)=>{

@@ -7,6 +7,7 @@ module.exports = {
         grayish:'#f3f3f3',
         textblue:'rgba(0, 87, 218, 0.65)',
         'background1':'rgba(2, 103, 255, 0.65)',
+        'background2':'rgba(2, 103, 255, 0.99)',
         'ingredientColor':'#0A5F98'
       },
       scale:{
@@ -37,7 +38,7 @@ module.exports = {
         'xxsm':{'max':'455px'}
       },
       maxHeight:{
-        '100': '29rem'
+        '100': '34rem'
       },
       maxWidth:{
         '120':'87.5rem'

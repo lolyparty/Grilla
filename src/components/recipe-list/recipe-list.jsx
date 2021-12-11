@@ -22,6 +22,7 @@ const Recipelist = ({search})=>{
         const getRecipe = async () =>{
             try{
                 if(search !== ''){
+                    console.log(search)
                     setnumberofPages(0)
                     setPage(1)
                     searchResults([])
