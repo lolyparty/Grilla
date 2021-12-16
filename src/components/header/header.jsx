@@ -3,10 +3,11 @@ import './header.css'
 import {Searchrecipe} from './searchrecipe/searchrecipe';
 import logo from './Grilla-Icon.svg'
 import {Likes} from './likes/likes'
+import { LikesList } from './likes/likesList';
 
 const Header = ({search, changed,inputValue, keyPress})=>{
 
-    return <div className="header flex my-2 mx-auto justify-between xsm:justify-start smm:space-x-1">
+    return <div className="header flex my-2 mx-auto justify-between xsm:justify-start smm:space-x-1 relative">
         <div className="flex p-4 mdd:px-2 xsm:pr-0.5 ml-4">
             <div className="rounded-full">
                 <img src={logo} alt="Grilla Icon" className="icon w-20 h-20 md:w-16 md:h-16 xsm:w-12 xsm:h-12"/> 
@@ -20,6 +21,7 @@ const Header = ({search, changed,inputValue, keyPress})=>{
             keyPress={keyPress}
         />
         <Likes />
+        <LikesList />
     </div>
 }
 
