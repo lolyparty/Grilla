@@ -6,7 +6,7 @@ import leftArrow from './left-arrow.svg'
 import rightArrow from './right-arrow.svg'
 import {SkeletonLoader} from  './SkeletonLoader'
 
-const Recipelist = ({search})=>{
+const Recipelist = ({search, closeLikes})=>{
 
     const [results, searchResults] = React.useState([])
 
@@ -55,7 +55,7 @@ const Recipelist = ({search})=>{
             {isLoading && <SkeletonLoader />}
         <div className="p-1 flex flex-wrap justify-evenly">
             {results.slice(curPage * 10 - 10, curPage * 10).map(recipe=>{
-                return <RecipeListItem key={recipe.id} {...recipe}/>
+                return <RecipeListItem closeLikes={closeLikes} key={recipe.id} {...recipe}/>
             })}
         </div>
         <div className="p-8 navigationBtns justify-center flex w-full"> 

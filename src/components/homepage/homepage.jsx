@@ -12,6 +12,17 @@ const Homepage = ()=>{
 
     const [input, setInput] = React.useState('')
 
+    const [showLikes, setShowLikes] = React.useState(false)
+
+    const clicked = (e)=>{
+        e.preventDefault()
+        setShowLikes(!showLikes)
+    }
+
+    const closeLikes=()=>{
+        setShowLikes(false)
+    }
+
     const pressEnter = (e)=>{
         if(e.key === 'Enter'){
                 setSearch(input)
@@ -42,13 +53,15 @@ const Homepage = ()=>{
             changed={changed}
             inputValue={input}
             keyPress={pressEnter}
+            clicked={clicked}
+            showLikes={showLikes}
         />
         <hr className="mx-auto mt-3 mb-6"/>
                 
         <ScrollToTop />
       <Switch>
         <Route exact path='/'>
-            <Recipelist search={search} />
+            <Recipelist closeLikes={closeLikes} search={search} />
         </Route>
         <Route  path='/:id' component={RecipeDetails} />
       </Switch>

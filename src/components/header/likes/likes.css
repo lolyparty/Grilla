@@ -1,0 +1,14 @@
+.likescontainer::-webkit-scrollbar{
+    width:8px;
+}
+
+.likescontainer::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px #9faddf;
+    border-radius: 0px 5px 5px 0px;
+}
+ 
+.likescontainer::-webkit-scrollbar-thumb {
+  background-color: #788DD8;
+  border-radius: 5px;
+  /* outline: 1px solid slategrey; */
+}

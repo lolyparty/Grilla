@@ -1,11 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './header.css'
 import {Searchrecipe} from './searchrecipe/searchrecipe';
 import logo from './Grilla-Icon.svg'
 import {Likes} from './likes/likes'
 import { LikesList } from './likes/likesList';
 
-const Header = ({search, changed,inputValue, keyPress})=>{
+const Header = ({search, changed,inputValue, keyPress, showLikes, clicked})=>{
+    
+
 
     return <div className="header flex my-2 mx-auto justify-between xsm:justify-start smm:space-x-1 relative">
         <div className="flex p-4 mdd:px-2 xsm:pr-0.5 ml-4">
@@ -20,8 +22,8 @@ const Header = ({search, changed,inputValue, keyPress})=>{
             inputValue={inputValue}
             keyPress={keyPress}
         />
-        <Likes />
-        <LikesList />
+        <Likes clicked={clicked} />
+        {showLikes ? <LikesList /> : null}
     </div>
 }
 
