@@ -1,11 +1,11 @@
-import React, {useState} from 'react'
+import React from 'react'
 import './header.css'
 import {Searchrecipe} from './searchrecipe/searchrecipe';
 import logo from './Grilla-Icon.svg'
 import {Likes} from './likes/likes'
 import { LikesList } from './likes/likesList';
 
-const Header = ({search, changed,inputValue, keyPress, showLikes, clicked})=>{
+const Header = ({search, changed,inputValue, keyPress, showLikes, clicked, likedItems})=>{
     
 
 
@@ -16,14 +16,15 @@ const Header = ({search, changed,inputValue, keyPress, showLikes, clicked})=>{
             </div>
             <h1 className="Grilla ml-3 mdd:ml-2 mt-5 xsm:mt-3 text-3xl md:text-2xl xsm:text-xl xxsm:text-lg">Grilla</h1>
         </div>
+        {/* {console.log(likedItems)} */}
         <Searchrecipe 
             Search={search}
             changed={changed}
             inputValue={inputValue}
             keyPress={keyPress}
         />
-        <Likes clicked={clicked} />
-        {showLikes ? <LikesList /> : null}
+        <Likes clicked={clicked} likedItems={likedItems} showLikes={showLikes} />
+        {/* {showLikes ? <LikesList  likedItems={likedItems}/> : null} */}
     </div>
 }
 

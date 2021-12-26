@@ -1,6 +1,7 @@
 import React from 'react'
+import { LikesList } from './likesList';
 
-const Likes = ({clicked}) =>{
+const Likes = ({clicked, likedItems, showLikes}) =>{
     return <div className=" pt-10 mr-4"> <button className="border-0 flex justify-around text-xl likes outline outline-0" onClick={clicked}>
         Favourite Recipes
         <svg viewBox="0 0 55 49.6" width="35" height="25" className="ml-2">
@@ -8,6 +9,7 @@ const Likes = ({clicked}) =>{
                         c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
                     </svg>
     </button>
+    {showLikes ? <LikesList  likedItems={likedItems}/> : null}
     </div>
 } 
 

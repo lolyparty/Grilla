@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import { Recipelist } from '../recipe-list/recipe-list'
 import { Header } from '../header/header'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
@@ -14,8 +14,11 @@ const Homepage = ()=>{
 
     const [showLikes, setShowLikes] = React.useState(false)
 
+    const [likedItems, setLikedItems] = React.useState([])
+
     const clicked = (e)=>{
         e.preventDefault()
+        // console.log(likedItems)
         setShowLikes(!showLikes)
     }
 
@@ -37,6 +40,7 @@ const Homepage = ()=>{
         e.preventDefault()
         setSearch(input)
         setInput('')
+        setShowLikes(false)
         console.log(search, input)
     }
 
@@ -55,6 +59,7 @@ const Homepage = ()=>{
             keyPress={pressEnter}
             clicked={clicked}
             showLikes={showLikes}
+            likedItems={likedItems}
         />
         <hr className="mx-auto mt-3 mb-6"/>
                 
@@ -63,7 +68,9 @@ const Homepage = ()=>{
         <Route exact path='/'>
             <Recipelist closeLikes={closeLikes} search={search} />
         </Route>
-        <Route  path='/:id' component={RecipeDetails} />
+        <Route  path='/:id'>
+            <RecipeDetails likedItems={likedItems} setLikedItems={setLikedItems}/>
+        </Route>
       </Switch>
     </div>
     </Router>

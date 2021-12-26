@@ -1,4 +1,5 @@
 import React from 'react'
+import {useParams} from 'react-router-dom' 
 import axios from 'axios'
 import point from './point.svg'
 import arrow from './rightArrow.svg'
@@ -6,13 +7,16 @@ import facebook from './facebook.svg'
 import twitter from './twitter.svg'
 import time from './time.svg'
 import serving from './servings.svg'
+import { stringify } from 'postcss'
 
-const RecipeDetails = ({match})=>{
+const RecipeDetails = ({likedItems, setLikedItems})=>{
     const [detailsResult, setDetails] = React.useState({})
     // const currentUrl = `http://grilla.vercel.app/${match.params.id}`
     const [ingredientsNumber, setIngredients] = React.useState(0)
     const [ingredientsDetails, setIngeredientsDetails] = React.useState([])
-    const [filled, setFilled] = React.useState(false) 
+    const [filled, setFilled] = React.useState(false)
+    let params = useParams()
+    
 
     const Ingredients = (initial,number) =>{
         const data = ingredientsDetails.slice(initial,number).map((e, index)=>{
@@ -21,26 +25,60 @@ const RecipeDetails = ({match})=>{
         return data
     }
 
+    const getIndex = (id, arr)=>{
+        for(var i =0 ; i < likedItems.length ; i++){
+            if(arr[i].id === id){
+                return i
+            }
+        }
+    }
+
+    let newRecipe = {}
     
 
     const likeUnlike = ()=>{
-        setFilled(!filled)
+        
+        // console.log(filled)
+        if(filled === false){
+            setFilled(true)
+            newRecipe = {
+                id:`${detailsResult.id}`,
+                image:`${detailsResult.image_url}`,
+                publisher:`${detailsResult.publisher}`,
+                title:`${detailsResult.title}`
+            }
+            setLikedItems(prev => {
+                return [...prev, newRecipe, newRecipe, newRecipe]
+            })
+        } else if(filled === true && likedItems.length > 0){
+            setFilled(false)
+            let num = getIndex(detailsResult.id, likedItems)
+            likedItems.splice(num,1)
+            setLikedItems(prev =>{
+                prev = [...likedItems]
+                return prev
+            })
+            localStorage.removeItem('likes')
+            localStorage.setItem('likes', JSON.stringify(likedItems))
+        }
     }
     
 
 
     React.useEffect(()=>{
         const getDetails = async ()=>{
-            const data = await axios.get(`https://forkify-api.herokuapp.com/api/v2/recipes/${match.params.id}?key${process.env.REACT_APP_API_KEY}`)
+            const data = await axios.get(`https://forkify-api.herokuapp.com/api/v2/recipes/${params.id}?key${process.env.REACT_APP_API_KEY}`)
             const details = data.data.data.recipe
             setDetails(details)
             setIngredients(Math.ceil(details.ingredients.length/2))
             setIngeredientsDetails(details.ingredients)
-            console.log(details)
+            // console.log(details)
+            
+            // console.log(newRecipe)
         }
 
         getDetails()
-},[match.params.id])
+},[params.id])
 
     return <div>
                 {Object.keys(detailsResult).length > 0 ? <div> <div className=" w-full flex justify-center">
@@ -85,16 +123,13 @@ const RecipeDetails = ({match})=>{
                     <p className="mt-7 text-xl text-ingredientColor inline-block">Share this recipe with your friends and family: <img src={facebook} alt="share on facebook" className="inline-block mx-3 cursor-pointer"/> <a class="twitter-share-button"
                     href="https://twitter.com/intent/tweet"
                     data-text={`Hey guys checkout this${detailsResult.title} recipe I found on grilla`}
-                    data-url={`http://grilla.vercel.app/${match.params.id}`}><img src={twitter} alt="share on twitter" className="inline-block mx-3 cursor-pointer"/></a></p>
+                    data-url={`http://grilla.vercel.app/${params.id}`}><img src={twitter} alt="share on twitter" className="inline-block mx-3 cursor-pointer"/></a></p>
                     </div>
                 </div> 
                 </div> : null}
             </div> 
 }
 
-
-{/* <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Hey, everyone checkout this recipe." data-url={`http://grilla.vercel.app/${match.params.id}`} data-show-count="false">Tweet</a>
-                <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> */}
 export {RecipeDetails}
 
 //image url
