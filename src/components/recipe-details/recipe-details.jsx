@@ -25,12 +25,19 @@ const RecipeDetails = ({likedItems, setLikedItems})=>{
     }
 
     const getIndex = (id, arr, purpose)=>{
-        for(var i =0 ; i < likedItems.length ; i++){
-            if(arr[i].id === id){
-                    return i
+        
+            for(var i =0 ; i < likedItems.length ; i++){
+                if(arr[i].id === id){
+                    if(purpose === 'removeLike'){return i}
+                    else if(purpose === 'checkLike'){
+                        console.log(arr[i].id === id)
+                        return arr[i].id === id
+                    }
+                }
+                
             }
-        }
-    }
+            
+        } 
 
     let newRecipe = {}
     
@@ -74,9 +81,13 @@ const RecipeDetails = ({likedItems, setLikedItems})=>{
             // console.log(details)
             
             // console.log(newRecipe)
+            if(getIndex(details.id, likedItems,'checkLike')){
+                setFilled(true)
+            }
         }
 
         getDetails()
+        
 },[params.id])
 
     return <div>
