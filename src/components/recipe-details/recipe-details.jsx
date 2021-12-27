@@ -7,7 +7,6 @@ import facebook from './facebook.svg'
 import twitter from './twitter.svg'
 import time from './time.svg'
 import serving from './servings.svg'
-import { stringify } from 'postcss'
 
 const RecipeDetails = ({likedItems, setLikedItems})=>{
     const [detailsResult, setDetails] = React.useState({})
@@ -25,10 +24,10 @@ const RecipeDetails = ({likedItems, setLikedItems})=>{
         return data
     }
 
-    const getIndex = (id, arr)=>{
+    const getIndex = (id, arr, purpose)=>{
         for(var i =0 ; i < likedItems.length ; i++){
             if(arr[i].id === id){
-                return i
+                    return i
             }
         }
     }
@@ -48,11 +47,11 @@ const RecipeDetails = ({likedItems, setLikedItems})=>{
                 title:`${detailsResult.title}`
             }
             setLikedItems(prev => {
-                return [...prev, newRecipe, newRecipe, newRecipe]
+                return [...prev, newRecipe]
             })
         } else if(filled === true && likedItems.length > 0){
             setFilled(false)
-            let num = getIndex(detailsResult.id, likedItems)
+            let num = getIndex(detailsResult.id, likedItems,'removeLike')
             likedItems.splice(num,1)
             setLikedItems(prev =>{
                 prev = [...likedItems]
@@ -92,7 +91,7 @@ const RecipeDetails = ({likedItems, setLikedItems})=>{
                 </div>
                 <div className="mx-auto my-2 flex justify-between w-10/12" >
                     <div className="text-ingredientColor font-bold text-xl flex pt-2.5">
-                        <div classname=""><img src={time} alt="time" className="inline-block"/> {detailsResult.cooking_time} mins</div>
+                        <div ><img src={time} alt="time" className="inline-block"/> {detailsResult.cooking_time} mins</div>
                         <div className="ml-4"><img src={serving} alt="number of servings" className="inline-block"/>  {detailsResult.servings} servings</div>
                     </div>
                     {ingredientsDetails.length > 0 ? <svg viewBox="0 0 45 39.6" width="60" height="50" className={filled ? 'clicked likeButton': "likeButton"}>

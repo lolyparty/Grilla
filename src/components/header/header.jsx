@@ -5,7 +5,7 @@ import logo from './Grilla-Icon.svg'
 import {Likes} from './likes/likes'
 import { LikesList } from './likes/likesList';
 
-const Header = ({search, changed,inputValue, keyPress, showLikes, clicked, likedItems})=>{
+const Header = ({search, changed,inputValue, keyPress, showLikes, clicked, likedItems, setLikedItems})=>{
     
 
 
@@ -23,7 +23,7 @@ const Header = ({search, changed,inputValue, keyPress, showLikes, clicked, liked
             inputValue={inputValue}
             keyPress={keyPress}
         />
-        <Likes clicked={clicked} likedItems={likedItems} showLikes={showLikes} />
+        <Likes clicked={clicked} likedItems={likedItems} showLikes={showLikes} setLikedItems={setLikedItems}/>
         {/* {showLikes ? <LikesList  likedItems={likedItems}/> : null} */}
     </div>
 }

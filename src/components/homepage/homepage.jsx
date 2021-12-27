@@ -60,6 +60,7 @@ const Homepage = ()=>{
             clicked={clicked}
             showLikes={showLikes}
             likedItems={likedItems}
+            setLikedItems={setLikedItems}
         />
         <hr className="mx-auto mt-3 mb-6"/>
                 
