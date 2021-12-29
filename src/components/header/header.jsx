@@ -3,7 +3,6 @@ import './header.css'
 import {Searchrecipe} from './searchrecipe/searchrecipe';
 import logo from './Grilla-Icon.svg'
 import {Likes} from './likes/likes'
-import { LikesList } from './likes/likesList';
 
 const Header = ({search, changed,inputValue, keyPress, showLikes, clicked, likedItems, setLikedItems})=>{
     

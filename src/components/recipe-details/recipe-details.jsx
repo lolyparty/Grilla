@@ -10,7 +10,6 @@ import serving from './servings.svg'
 
 const RecipeDetails = ({likedItems, setLikedItems})=>{
     const [detailsResult, setDetails] = React.useState({})
-    // const currentUrl = `http://grilla.vercel.app/${match.params.id}`
     const [ingredientsNumber, setIngredients] = React.useState(0)
     const [ingredientsDetails, setIngeredientsDetails] = React.useState([])
     const [filled, setFilled] = React.useState(false)
@@ -30,7 +29,7 @@ const RecipeDetails = ({likedItems, setLikedItems})=>{
                 if(arr[i].id === id){
                     if(purpose === 'removeLike'){return i}
                     else if(purpose === 'checkLike'){
-                        console.log(arr[i].id === id)
+                        // console.log(arr[i].id === id)
                         return arr[i].id === id
                     }
                 }
@@ -56,6 +55,9 @@ const RecipeDetails = ({likedItems, setLikedItems})=>{
             setLikedItems(prev => {
                 return [...prev, newRecipe]
             })
+            localStorage.removeItem('likes')
+            console.log(likedItems)
+            // localStorage.setItem('likes', JSON.stringify(likedItems))
         } else if(filled === true && likedItems.length > 0){
             setFilled(false)
             let num = getIndex(detailsResult.id, likedItems,'removeLike')
@@ -83,12 +85,14 @@ const RecipeDetails = ({likedItems, setLikedItems})=>{
             // console.log(newRecipe)
             if(getIndex(details.id, likedItems,'checkLike')){
                 setFilled(true)
+            } else{
+                setFilled(false)
             }
         }
 
         getDetails()
         
-},[params.id])
+},[params.id, likedItems])
 
     return <div>
                 {Object.keys(detailsResult).length > 0 ? <div> <div className=" w-full flex justify-center">
@@ -113,10 +117,10 @@ const RecipeDetails = ({likedItems, setLikedItems})=>{
                 {ingredientsDetails.length > 0 ? <div className="bg-gray-100 pb-5">
                             <p className="text-center mx-auto text-textblue font-bold text-2xl my-3">RECIPE INGREDIENTS</p>
                             <div className="flex justify-evenly">
-                                <div className="my-2 mx-6 text-ingredientColor font-bold text-md">
+                                <div className="my-2 mx-6 text-ingredientColor font-bold text-md w-5/12">
                                     {Ingredients(0, ingredientsNumber)}
                                 </div>
-                                <div className="my-2 mx-6 text-ingredientColor font-bold text-md">
+                                <div className="my-2 mx-6 text-ingredientColor font-bold text-md w-5/12">
                                {Ingredients(ingredientsNumber)}
                                 </div>
                             </div>

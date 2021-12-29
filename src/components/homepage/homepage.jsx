@@ -30,7 +30,7 @@ const Homepage = ()=>{
         if(e.key === 'Enter'){
                 setSearch(input)
                 setInput('')
-                console.log(search, input)
+                // console.log(search, input)
             }
     }
 
@@ -41,7 +41,7 @@ const Homepage = ()=>{
         setSearch(input)
         setInput('')
         setShowLikes(false)
-        console.log(search, input)
+        // console.log(search, input)
     }
 
     const changed =(e)=>{
