@@ -116,11 +116,11 @@ const RecipeDetails = ({likedItems, setLikedItems})=>{
                 </div>
                 {ingredientsDetails.length > 0 ? <div className="bg-gray-100 pb-5">
                             <p className="text-center mx-auto text-textblue font-bold text-2xl my-3">RECIPE INGREDIENTS</p>
-                            <div className="flex justify-evenly">
-                                <div className="my-2 mx-6 text-ingredientColor font-bold text-md w-5/12">
+                            <div className="flex justify-evenly w-11/12 mx-auto">
+                                <div className="my-2 mx-auto text-ingredientColor font-bold text-md pl-10 w-6/12">
                                     {Ingredients(0, ingredientsNumber)}
                                 </div>
-                                <div className="my-2 mx-6 text-ingredientColor font-bold text-md w-5/12">
+                                <div className="my-2 mx-auto text-ingredientColor font-bold text-md w-6/12">
                                {Ingredients(ingredientsNumber)}
                                 </div>
                             </div>

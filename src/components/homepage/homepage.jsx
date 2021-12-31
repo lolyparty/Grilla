@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Recipelist } from '../recipe-list/recipe-list'
 import { Header } from '../header/header'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
@@ -14,13 +14,23 @@ const Homepage = ()=>{
 
     const [showLikes, setShowLikes] = React.useState(false)
 
-    const [likedItems, setLikedItems] = React.useState([])
+    const initialLikes = JSON.parse(localStorage.getItem('likes')) ? JSON.parse(localStorage.getItem('likes')) : [];
+
+    const [likedItems, setLikedItems] = React.useState(initialLikes)
 
     const clicked = (e)=>{
         e.preventDefault()
         // console.log(likedItems)
         setShowLikes(!showLikes)
     }
+
+    useEffect (()=>{
+        const updateStorage =()=>{
+            localStorage.setItem('likes',JSON.stringify(likedItems))
+        }
+        updateStorage()
+
+    },[likedItems])
 
     const closeLikes=()=>{
         setShowLikes(false)
@@ -34,7 +44,6 @@ const Homepage = ()=>{
             }
     }
 
-    
 
     const getSearch = (e)=>{
         e.preventDefault()
@@ -50,7 +59,6 @@ const Homepage = ()=>{
     }
 
     return <Router>
-
     <div className="bg-grayish rounded-2xl shadow p-8 pt-4 max-w-120 min-h-screen mdd:p-4 xsm:px-1.5 mx-auto">
             <Header 
             search={getSearch}
