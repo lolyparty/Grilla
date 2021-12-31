@@ -4,7 +4,7 @@ import axios from 'axios'
 import point from './point.svg'
 import arrow from './rightArrow.svg'
 import facebook from './facebook.svg'
-import twitter from './twitter.svg'
+// import twitter from './twitter.svg'
 import time from './time.svg'
 import serving from './servings.svg'
 
@@ -134,10 +134,11 @@ const RecipeDetails = ({likedItems, setLikedItems})=>{
                     <a href={detailsResult.source_url} className="p-3 px-5 bg-background2 my-10 text-white rounded-xl mx-auto font-bold text-xl" rel="noreferrer" target="_blank"> Directions <img src={arrow} alt='directions' className="inline-block mb-0.5"/></a>
                     </div>
                     <div className="share">
-                    <p className="mt-7 text-xl text-ingredientColor inline-block">Share this recipe with your friends and family: <img src={facebook} alt="share on facebook" className="inline-block mx-3 cursor-pointer"/> <a class="twitter-share-button"
-                    href="https://twitter.com/intent/tweet"
-                    data-text={`Hey guys checkout this${detailsResult.title} recipe I found on grilla`}
-                    data-url={`http://grilla.vercel.app/${params.id}`}><img src={twitter} alt="share on twitter" className="inline-block mx-3 cursor-pointer"/></a></p>
+                    <p className="mt-7 text-xl text-ingredientColor inline-block">Share this recipe with your friends and family: </p>
+                    <div className="flex justify-center my-4">
+                        <a href="" alt=""><img src={facebook} alt="share on facebook" className="mx-3 cursor-pointer"/> </a>
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" className="twitter-share-button inline-block" data-show-count="false" data-size="large" data-text={`Hey guys, check out the recipe of ${detailsResult.title} that I found on Grilla`}>Tweet</a>
+                    </div>
                     </div>
                 </div> 
                 </div> : null}
@@ -145,11 +146,3 @@ const RecipeDetails = ({likedItems, setLikedItems})=>{
 }
 
 export {RecipeDetails}
-
-//image url
-//title
-//publisher
-//cooking tmie
-//ingredient
-//servings
-//source url
