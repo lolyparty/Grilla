@@ -6,6 +6,7 @@ import arrow from './rightArrow.svg'
 import facebook from './facebook.svg'
 // import twitter from './twitter.svg'
 import time from './time.svg'
+import MetaTags from 'react-meta-tags';
 import serving from './servings.svg'
 
 const RecipeDetails = ({likedItems, setLikedItems})=>{
@@ -95,6 +96,14 @@ const RecipeDetails = ({likedItems, setLikedItems})=>{
 },[params.id, likedItems])
 
     return <div>
+
+                <MetaTags>
+                    <meta name="description" content={`Recipe of ${detailsResult.title}`} />
+                    <meta property="og:title" content={`${detailsResult.title}`} />
+                    <meta property="og:image" content={`${detailsResult.image_url}`} />
+                    <meta property="og:url"           content={`${window.location.href}`} />
+                </MetaTags>
+
                 {Object.keys(detailsResult).length > 0 ? <div> <div className=" w-full flex justify-center">
                     <div className="w-9/12 relative ">
                         <div className="absolute w-full h-full top-0 left-0 rounded-md overlay mx-auto"></div>
@@ -134,10 +143,14 @@ const RecipeDetails = ({likedItems, setLikedItems})=>{
                     <a href={detailsResult.source_url} className="p-3 px-5 bg-background2 my-10 text-white rounded-xl mx-auto font-bold text-xl" rel="noreferrer" target="_blank"> Directions <img src={arrow} alt='directions' className="inline-block mb-0.5"/></a>
                     </div>
                     <div className="share">
-                    <p className="mt-7 text-xl text-ingredientColor inline-block">Share this recipe with your friends and family: </p>
+                    <p className="mt-7 text-xl text-ingredientColor inline-block">Share this recipe with family and friends: </p>
                     <div className="flex justify-center my-4">
-                        <a href="" alt=""><img src={facebook} alt="share on facebook" className="mx-3 cursor-pointer"/> </a>
-                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" className="twitter-share-button inline-block" data-show-count="false" data-size="large" data-text={`Hey guys, check out the recipe of ${detailsResult.title} that I found on Grilla`}>Tweet</a>
+                        <div class="fb-share-button" 
+                        data-href={`https://grilla.vercel.app/${detailsResult.id}`} 
+                        data-layout="button_count" data-size="large">
+                        </div>
+
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" className="twitter-share-button mx-3" data-show-count="false" data-size="large" data-text={`Hey guys, check out the recipe of ${detailsResult.title} that I found on Grilla`}>Tweet</a>
                     </div>
                     </div>
                 </div> 
