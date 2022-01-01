@@ -1,7 +1,7 @@
 import React from 'react'
 import './header.css'
 import {Searchrecipe} from './searchrecipe/searchrecipe';
-import logo from './Grilla-Icon.svg'
+import logo from '../SVGs/Grilla-Icon.svg'
 import {Likes} from './likes/likes'
 
 const Header = ({search, changed,inputValue, keyPress, showLikes, clicked, likedItems, setLikedItems})=>{

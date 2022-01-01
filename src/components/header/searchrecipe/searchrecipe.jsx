@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import searchIcon from './transparency.svg'
+import searchIcon from '../../SVGs/transparency.svg'
 
 const Searchrecipe = ({changed, Search, inputValue, keyPress}) =>{
     return <div className="relative flex justify-end items-center p-4 mdd:px-2 lg:pl-3 smm:pl-0 xsm:py-6 xsm:ml-0">

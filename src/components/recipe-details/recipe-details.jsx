@@ -1,11 +1,12 @@
 import React from 'react'
 import {useParams} from 'react-router-dom' 
 import axios from 'axios'
-import point from './point.svg'
-import arrow from './rightArrow.svg'
-import time from './time.svg'
+import point from '../SVGs/point.svg'
+import arrow from '../SVGs/rightArrow.svg'
+import time from '../SVGs/time.svg'
 import MetaTags from 'react-meta-tags';
-import serving from './servings.svg'
+import serving from '../SVGs/servings.svg'
+import Icon from '../SVGs/Grilla-Icon.svg'
 
 const RecipeDetails = ({likedItems, setLikedItems})=>{
     const [detailsResult, setDetails] = React.useState({})
@@ -96,6 +97,7 @@ const RecipeDetails = ({likedItems, setLikedItems})=>{
     return <div>
 
                 <MetaTags>
+                    <meta property="og:image" content={Icon} />
                     <meta property="og:url"   content={`${window.location.href}`} />
                 </MetaTags>
 

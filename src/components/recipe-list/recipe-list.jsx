@@ -2,8 +2,8 @@ import React from 'react'
 import './recipe-list.css'
 import {RecipeListItem} from './recipe-list-item'
 import axios from 'axios'
-import leftArrow from './left-arrow.svg'
-import rightArrow from './right-arrow.svg'
+import leftArrow from '../SVGs/left-arrow.svg'
+import rightArrow from '../SVGs/right-arrow.svg'
 import {SkeletonLoader} from  './SkeletonLoader'
 
 const Recipelist = ({search, closeLikes})=>{
