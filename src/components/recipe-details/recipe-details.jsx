@@ -148,7 +148,7 @@ const RecipeDetails = ({likedItems, setLikedItems, setShowLikes})=>{
                             </div>
                         </div>
                         <div className="ml-4">
-                            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" data-size="large" data-text={`Hey guys, check out the recipe of ${detailsResult.title} that I found on Grilla`}>Tweet</a>
+                            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" data-size="large" data-text={`Guys! check out the recipe of ${detailsResult.title} on Grilla`}>Tweet</a>
                         </div>
                     </div>
                     </div>
