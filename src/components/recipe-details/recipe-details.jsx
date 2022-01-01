@@ -96,10 +96,10 @@ const RecipeDetails = ({likedItems, setLikedItems})=>{
     return <div>
 
                 <MetaTags>
+                    <meta property="og:type" content="website" />
                     <meta property="og:description" content={`Recipe of ${detailsResult.title}`} />
                     <meta property="og:title" content={`${detailsResult.title}`} />
                     <meta property="og:image" content={`${detailsResult.image_url}`} />
-                    <meta property="og:image:secure_url" content={`https://secure.${detailsResult.image_url}`} />
                     <meta property="og:image:type" content="image/jpeg" />
                     <meta property="og:image:width" content="400" />
                     <meta property="og:image:height" content="300" />
