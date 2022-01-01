@@ -98,7 +98,11 @@ const RecipeDetails = ({likedItems, setLikedItems})=>{
                 <MetaTags>
                     <meta property="og:description" content={`Recipe of ${detailsResult.title}`} />
                     <meta property="og:title" content={`${detailsResult.title}`} />
-                    <meta property="og:image" content="https://unsplash.com/photos/ZuIDLSz3XLg" />
+                    <meta property="og:image" content={`${detailsResult.image_url}`} />
+                    <meta property="og:image:secure_url" content={`https://secure.${detailsResult.image_url}`} />
+                    <meta property="og:image:type" content="image/jpeg" />
+                    <meta property="og:image:width" content="400" />
+                    <meta property="og:image:height" content="300" />
                     <meta property="og:url"   content={`${window.location.href}`} />
                 </MetaTags>
 
