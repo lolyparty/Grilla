@@ -98,8 +98,8 @@ const RecipeDetails = ({likedItems, setLikedItems})=>{
                 <MetaTags>
                     <meta property="og:description" content={`Recipe of ${detailsResult.title}`} />
                     <meta property="og:title" content={`${detailsResult.title}`} />
-                    <meta property="og:image" content={`${detailsResult.image_url}`} />
-                    <meta property="og:url"           content={`${window.location.href}`} />
+                    <meta property="og:image" content="https://unsplash.com/photos/ZuIDLSz3XLg" />
+                    <meta property="og:url"   content={`${window.location.href}`} />
                 </MetaTags>
 
                 {Object.keys(detailsResult).length > 0 ? <div> <div className=" w-full flex justify-center">
