@@ -96,7 +96,7 @@ const RecipeDetails = ({likedItems, setLikedItems})=>{
     return <div>
 
                 <MetaTags>
-                    <meta name="description" content={`Recipe of ${detailsResult.title}`} />
+                    <meta property="og:description" content={`Recipe of ${detailsResult.title}`} />
                     <meta property="og:title" content={`${detailsResult.title}`} />
                     <meta property="og:image" content={`${detailsResult.image_url}`} />
                     <meta property="og:url"           content={`${window.location.href}`} />
@@ -143,12 +143,15 @@ const RecipeDetails = ({likedItems, setLikedItems})=>{
                     <div className="share">
                     <p className="mt-7 text-xl text-ingredientColor inline-block">Share this recipe with family and friends: </p>
                     <div className="flex justify-center my-4">
-                        <div class="fb-share-button" 
-                        data-href={`https://grilla.vercel.app/${detailsResult.id}`} 
-                        data-layout="button_count" data-size="large">
+                        <div className="mr-2">
+                            <div class="fb-share-button"
+                            data-href={`https://grilla.vercel.app/${detailsResult.id}`} 
+                            data-layout="button_count" data-size="large">
+                            </div>
                         </div>
-
-                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" className="ml-4" data-show-count="false" data-size="large" data-text={`Hey guys, check out the recipe of ${detailsResult.title} that I found on Grilla`}>Tweet</a>
+                        <div className="ml-4">
+                            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" data-size="large" data-text={`Hey guys, check out the recipe of ${detailsResult.title} that I found on Grilla`}>Tweet</a>
+                        </div>
                     </div>
                     </div>
                 </div> 
