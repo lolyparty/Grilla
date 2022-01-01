@@ -3,8 +3,6 @@ import {useParams} from 'react-router-dom'
 import axios from 'axios'
 import point from './point.svg'
 import arrow from './rightArrow.svg'
-import facebook from './facebook.svg'
-// import twitter from './twitter.svg'
 import time from './time.svg'
 import MetaTags from 'react-meta-tags';
 import serving from './servings.svg'
@@ -150,7 +148,7 @@ const RecipeDetails = ({likedItems, setLikedItems})=>{
                         data-layout="button_count" data-size="large">
                         </div>
 
-                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" className="twitter-share-button mx-3" data-show-count="false" data-size="large" data-text={`Hey guys, check out the recipe of ${detailsResult.title} that I found on Grilla`}>Tweet</a>
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" className="ml-4" data-show-count="false" data-size="large" data-text={`Hey guys, check out the recipe of ${detailsResult.title} that I found on Grilla`}>Tweet</a>
                     </div>
                     </div>
                 </div> 
