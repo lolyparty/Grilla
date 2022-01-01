@@ -8,7 +8,7 @@ import MetaTags from 'react-meta-tags';
 import serving from '../SVGs/servings.svg'
 import Icon from '../SVGs/Grilla-Icon.svg'
 
-const RecipeDetails = ({likedItems, setLikedItems})=>{
+const RecipeDetails = ({likedItems, setLikedItems, setShowLikes})=>{
     const [detailsResult, setDetails] = React.useState({})
     const [ingredientsNumber, setIngredients] = React.useState(0)
     const [ingredientsDetails, setIngeredientsDetails] = React.useState([])
@@ -81,7 +81,7 @@ const RecipeDetails = ({likedItems, setLikedItems})=>{
             setIngredients(Math.ceil(details.ingredients.length/2))
             setIngeredientsDetails(details.ingredients)
             // console.log(details)
-            
+            setShowLikes(false)
             // console.log(newRecipe)
             if(getIndex(details.id, likedItems,'checkLike')){
                 setFilled(true)

@@ -78,7 +78,7 @@ const Homepage = ()=>{
             <Recipelist closeLikes={closeLikes} search={search} />
         </Route>
         <Route  path='/:id'>
-            <RecipeDetails likedItems={likedItems} setLikedItems={setLikedItems}/>
+            <RecipeDetails likedItems={likedItems} setLikedItems={setLikedItems} setShowLikes={setShowLikes}/>
         </Route>
       </Switch>
     </div>
