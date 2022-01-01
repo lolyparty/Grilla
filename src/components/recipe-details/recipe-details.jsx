@@ -97,7 +97,6 @@ const RecipeDetails = ({likedItems, setLikedItems, setShowLikes})=>{
     return <div>
 
                 <MetaTags>
-                    <meta property="og:image" content={Icon} />
                     <meta property="og:url"   content={`${window.location.href}`} />
                 </MetaTags>
 
@@ -123,10 +122,10 @@ const RecipeDetails = ({likedItems, setLikedItems, setShowLikes})=>{
                 {ingredientsDetails.length > 0 ? <div className="bg-gray-100 pb-5">
                             <p className="text-center mx-auto text-textblue font-bold text-2xl my-3">RECIPE INGREDIENTS</p>
                             <div className="flex justify-evenly w-11/12 mx-auto">
-                                <div className="my-2 mx-auto text-ingredientColor font-bold text-md pl-10 w-6/12">
+                                <div className="my-2 mx-auto text-ingredientColor font-bold p-4 text-md pl-10 w-6/12">
                                     {Ingredients(0, ingredientsNumber)}
                                 </div>
-                                <div className="my-2 mx-auto text-ingredientColor font-bold text-md w-6/12">
+                                <div className="my-2 mx-auto text-ingredientColor p-4 pl-10 font-bold text-md w-6/12">
                                {Ingredients(ingredientsNumber)}
                                 </div>
                             </div>
