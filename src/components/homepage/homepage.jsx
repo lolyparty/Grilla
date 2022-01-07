@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import { Recipelist } from '../recipe-list/recipe-list'
 import { Header } from '../header/header'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch, useHistory} from 'react-router-dom'
 import ScrollToTop from '../scrollToTop'
 import {RecipeDetails} from '../recipe-details/recipe-details'
 
@@ -17,6 +17,8 @@ const Homepage = ()=>{
     const initialLikes = JSON.parse(localStorage.getItem('likes')) ? JSON.parse(localStorage.getItem('likes')) : [];
 
     const [likedItems, setLikedItems] = React.useState(initialLikes)
+
+    let history = useHistory()
 
     const clicked = (e)=>{
         e.preventDefault()
@@ -39,6 +41,7 @@ const Homepage = ()=>{
     const pressEnter = (e)=>{
         if(e.key === 'Enter'){
                 setSearch(input)
+                history.push('/')                
                 setInput('')
                 // console.log(search, input)
             }
@@ -48,6 +51,7 @@ const Homepage = ()=>{
     const getSearch = (e)=>{
         e.preventDefault()
         setSearch(input)
+        history.push('/')
         setInput('')
         setShowLikes(false)
         // console.log(search, input)
@@ -58,8 +62,7 @@ const Homepage = ()=>{
         setInput(value)
     }
 
-    return <Router>
-    <div className="bg-grayish rounded-2xl shadow p-8 pt-4 max-w-120 min-h-screen mdd:p-4 xsm:px-1.5 mx-auto">
+    return <div className="bg-grayish rounded-2xl shadow p-8 pt-4 max-w-120 min-h-screen mdd:p-4 xsm:px-1.5 mx-auto">
             <Header 
             search={getSearch}
             changed={changed}
@@ -82,7 +85,6 @@ const Homepage = ()=>{
         </Route>
       </Switch>
     </div>
-    </Router>
 }
 
 export { Homepage }
