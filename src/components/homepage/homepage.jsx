@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import { Recipelist } from '../recipe-list/recipe-list'
 import { Header } from '../header/header'
-import {BrowserRouter as Router, Route, Switch, useHistory} from 'react-router-dom'
+import {Route, Switch, useHistory} from 'react-router-dom'
 import ScrollToTop from '../scrollToTop'
 import {RecipeDetails} from '../recipe-details/recipe-details'
 
@@ -22,7 +22,6 @@ const Homepage = ()=>{
 
     const clicked = (e)=>{
         e.preventDefault()
-        // console.log(likedItems)
         setShowLikes(!showLikes)
     }
 
@@ -43,7 +42,6 @@ const Homepage = ()=>{
                 setSearch(input)
                 history.push('/')                
                 setInput('')
-                // console.log(search, input)
             }
     }
 
@@ -54,7 +52,6 @@ const Homepage = ()=>{
         history.push('/')
         setInput('')
         setShowLikes(false)
-        // console.log(search, input)
     }
 
     const changed =(e)=>{
@@ -78,7 +75,7 @@ const Homepage = ()=>{
         <ScrollToTop />
       <Switch>
         <Route exact path='/'>
-            <Recipelist closeLikes={closeLikes} search={search} />
+            <Recipelist closeLikes={closeLikes} search={search} setShowLikes={setShowLikes}/>
         </Route>
         <Route  path='/:id'>
             <RecipeDetails likedItems={likedItems} setLikedItems={setLikedItems} setShowLikes={setShowLikes}/>

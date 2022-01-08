@@ -6,7 +6,7 @@ import leftArrow from '../SVGs/left-arrow.svg'
 import rightArrow from '../SVGs/right-arrow.svg'
 import {SkeletonLoader} from  './SkeletonLoader'
 
-const Recipelist = ({search, closeLikes})=>{
+const Recipelist = ({search, closeLikes, setShowLikes})=>{
 
     const [results, searchResults] = React.useState([])
 
@@ -22,15 +22,16 @@ const Recipelist = ({search, closeLikes})=>{
         const getRecipe = async () =>{
             try{
                 if(search !== ''){
-                    console.log(search)
                     setnumberofPages(0)
                     setPage(1)
                     searchResults([])
                     setLoading(true)
                     const data = await axios.get(`https://forkify-api.herokuapp.com/api/v2/recipes?search=${search}&key=${process.env.REACT_APP_API_KEY}`)
                     searchResults(data.data.data.recipes)
+                    setShowLikes(false)
                     setLoading(false)
                     setnumberofPages(Math.ceil(data.data.data.recipes.length/10))
+                    
                 }
                 
             } catch{
