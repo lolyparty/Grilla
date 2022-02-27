@@ -6,12 +6,13 @@ import arrow from '../SVGs/rightArrow.svg'
 import time from '../SVGs/time.svg'
 import MetaTags from 'react-meta-tags';
 import serving from '../SVGs/servings.svg'
+import './recipe_details.css'
 
 const RecipeDetails = ({likedItems, setLikedItems, setShowLikes})=>{
     const [detailsResult, setDetails] = React.useState({})
     const [ingredientsNumber, setIngredients] = React.useState(0)
     const [ingredientsDetails, setIngeredientsDetails] = React.useState([])
-    const [filled, setFilled] = React.useState(false)
+    const [loading, setLoading] = React.useState(false)
     let params = useParams()
     
 
@@ -28,7 +29,7 @@ const RecipeDetails = ({likedItems, setLikedItems, setShowLikes})=>{
                 if(arr[i].id === id){
                     if(purpose === 'removeLike'){return i}
                     else if(purpose === 'checkLike'){
-                        // console.log(arr[i].id === id)
+                        // console.log(arr[i].id === id, likedItems)
                         return arr[i].id === id
                     }
                 }
@@ -41,10 +42,16 @@ const RecipeDetails = ({likedItems, setLikedItems, setShowLikes})=>{
     
 
     const likeUnlike = ()=>{
-        
-        // console.log(filled)
-        if(filled === false){
-            setFilled(true)
+        if(getIndex(detailsResult.id, likedItems,'checkLike')){
+            let num = getIndex(detailsResult.id, likedItems,'removeLike')
+            likedItems.splice(num,1)
+            setLikedItems(prev =>{
+                prev = [...likedItems]
+                return prev
+            })
+            localStorage.removeItem('likes')
+            localStorage.setItem('likes', JSON.stringify(likedItems))
+        } else{
             newRecipe = {
                 id:`${detailsResult.id}`,
                 image:`${detailsResult.image_url}`,
@@ -55,18 +62,6 @@ const RecipeDetails = ({likedItems, setLikedItems, setShowLikes})=>{
                 return [...prev, newRecipe]
             })
             localStorage.removeItem('likes')
-            console.log(likedItems)
-            // localStorage.setItem('likes', JSON.stringify(likedItems))
-        } else if(filled === true && likedItems.length > 0){
-            setFilled(false)
-            let num = getIndex(detailsResult.id, likedItems,'removeLike')
-            likedItems.splice(num,1)
-            setLikedItems(prev =>{
-                prev = [...likedItems]
-                return prev
-            })
-            localStorage.removeItem('likes')
-            localStorage.setItem('likes', JSON.stringify(likedItems))
         }
     }
     
@@ -74,24 +69,19 @@ const RecipeDetails = ({likedItems, setLikedItems, setShowLikes})=>{
 
     React.useEffect(()=>{
         const getDetails = async ()=>{
+            setShowLikes(false)
+            setLoading(true)
             const data = await axios.get(`https://forkify-api.herokuapp.com/api/v2/recipes/${params.id}?key${process.env.REACT_APP_API_KEY}`)
             const details = data.data.data.recipe
             setDetails(details)
             setIngredients(Math.ceil(details.ingredients.length/2))
             setIngeredientsDetails(details.ingredients)
-            // console.log(details)
-            setShowLikes(false)
-            // console.log(newRecipe)
-            if(getIndex(details.id, likedItems,'checkLike')){
-                setFilled(true)
-            } else{
-                setFilled(false)
-            }
+            setLoading(true)
         }
 
         getDetails()
-        
-},[params.id, likedItems])
+
+},[params.id])
 
     return <div>
 
@@ -99,7 +89,26 @@ const RecipeDetails = ({likedItems, setLikedItems, setShowLikes})=>{
                     <meta property="og:url"   content={`${window.location.href}`} />
                 </MetaTags>
 
-                {Object.keys(detailsResult).length > 0 ? <div> <div className=" w-full flex justify-center">
+                {loading ? <div className="w-full">
+                        <div className="w-10/12 h-101 mx-auto bg-gray-200 relative loader overflow-hidden rounded-md"></div>
+                        <div className="mx-auto w-1/4 bg-gray-200 rounded-md h-12 loader overflow-hidden relative my-6"></div>
+                        <div className="flex justify-center w-full">
+                            <div className="w-full">
+                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-8 my-3 w-8/12 mx-auto"></div>
+                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-8 my-3 w-8/12 mx-auto"></div>
+                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-8 my-3 w-8/12 mx-auto"></div>
+                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-8 my-3 w-8/12 mx-auto"></div>
+                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-8 my-3 w-8/12 mx-auto"></div>
+                            </div>
+                            <div className="w-full">
+                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-8 my-3 w-8/12 mx-auto"></div>
+                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-8 my-3 w-8/12 mx-auto"></div>
+                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-8 my-3 w-8/12 mx-auto"></div>
+                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-8 my-3 w-8/12 mx-auto"></div>
+                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-8 my-3 w-8/12 mx-auto"></div>
+                            </div>
+                    </div>
+                </div> : Object.keys(detailsResult).length > 0 ? <div> <div className=" w-full flex justify-center">
                     <div className="w-9/12 relative ">
                         <div className="absolute w-full h-full top-0 left-0 rounded-md overlay mx-auto"></div>
                         <img className="bg-cover rounded-md w-full max-h-100 mx-auto" src={detailsResult.image_url} alt={detailsResult.title} />
@@ -113,8 +122,8 @@ const RecipeDetails = ({likedItems, setLikedItems, setShowLikes})=>{
                         <div className="xxsm:text-sm"><img src={time} alt="time" className="inline-block xxsm:h-4 xxsm:w-4"/> {detailsResult.cooking_time} mins</div>
                         <div className="ml-4 xxsm:text-sm"><img src={serving} alt="number of servings" className="inline-block xxsm:h-4 xxsm:w-4"/>  {detailsResult.servings} servings</div>
                     </div>
-                    {ingredientsDetails.length > 0 ? <svg viewBox="0 0 45 39.6" width="60" height="50" className={`xxsm:h-6 xxsm:w-7 ${filled ? 'clicked likeButton': "likeButton"}`}>
-                    <path id="liking" transform="translate(5,5)" transition="1s" onClick={likeUnlike} stroke="#ff0000" stroke-width="2" fill={filled ? '#ff0000' : '#F3F3F3'}  d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+                    {ingredientsDetails.length > 0 ? <svg viewBox="0 0 45 39.6" width="60" height="50" className={`xxsm:h-6 xxsm:w-7 ${getIndex(detailsResult.id, likedItems,'checkLike') ? 'clicked likeButton': "likeButton"}`}>
+                    <path id="liking" transform="translate(5,5)" transition="1s" onClick={likeUnlike} stroke="#ff0000" stroke-width="2" fill={getIndex(detailsResult.id, likedItems,'checkLike') ? '#ff0000' : '#F3F3F3'}  d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
                         c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
                     </svg> : null}
                 </div>
@@ -153,7 +162,8 @@ const RecipeDetails = ({likedItems, setLikedItems, setShowLikes})=>{
                     </div>
                     </div>
                 </div> 
-                </div> : null}
+                </div> : null
+                }
             </div> 
 }
 

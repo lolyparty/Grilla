@@ -9,11 +9,12 @@ const RecipeListItem = ({id,image_url,title,publisher,closeLikes})=>{
                             <img src={image_url} alt={title} className="w-full"/>
                         </div>
                         <div className="mt-3 ml-3 text-textblue">
-                            <h1 className="recipe_name text-xl sm:text-2xl">{title.slice(0,13)}...</h1>
+                            <h1 className="recipe_name text-xl sm:text-2xl">{title.slice(0,20)}...</h1>
                             <p className="mt-2 inline-block">{publisher}</p>
                         </div>
                     </div>
                 </Link> 
 }
+
 
 export {RecipeListItem}

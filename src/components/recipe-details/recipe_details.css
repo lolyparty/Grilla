@@ -1,0 +1,8 @@
+.loader::before{
+    content:'';
+    position: absolute;
+    width:2000px;
+    height: 100px;
+    background: rgb(242, 242, 242);
+    animation: loader 2s infinite;
+}

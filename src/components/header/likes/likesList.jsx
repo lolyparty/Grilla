@@ -32,15 +32,15 @@ const LikesList =({likedItems,setLikedItems})=>{
                     <p className="mt-4 inline-block mr-6">{item.publisher}</p><button className="focus:outline-none" onClick={(e)=>{
                         e.preventDefault()
                         let num = getIndex(item.id, likedItems)
-                        console.log(likedItems, num, item.id)
-                            likedItems.splice(num,1)
-                            console.log(likedItems)
-                            setLikedItems(prev =>{
+                        // console.log(likedItems, num, item.id)
+                        likedItems.splice(num,1)
+                        // console.log(likedItems)
+                        setLikedItems(prev =>{
                                 prev = [...likedItems]
                                 return prev
-                            })
-                            localStorage.removeItem('likes')
-            localStorage.setItem('likes', JSON.stringify(likedItems))
+                        })
+                        localStorage.removeItem('likes')
+                        localStorage.setItem('likes', JSON.stringify(likedItems))
                     }}><svg viewBox="0 0 45 39.6" width="30" height="25" className='clicked likeButton inline-block mt-4'>
                     <path id="liking" transform="translate(5,5)" transition="1s"  stroke="#ff0000" stroke-width="2" fill='#ff0000'  d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
                         c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/> 

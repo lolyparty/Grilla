@@ -1,7 +1,7 @@
 import React from 'react'
 import { LikesList } from './likesList';
 
-const Likes = ({clicked, likedItems, showLikes, setLikedItems}) =>{
+const Likes = ({clicked, likedItems, showLikes, setLikedItems, setFilled}) =>{
     return <div className=" pt-10 mr-4"> <button className="border-0 flex justify-around text-xl likes focus:outline-none focus:shadow-outline focus:border-blue" onClick={clicked}>
         Favourite Recipes
         <svg viewBox="0 0 55 49.6" width="35" height="25" className="ml-2">
@@ -9,7 +9,7 @@ const Likes = ({clicked, likedItems, showLikes, setLikedItems}) =>{
                         c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
                     </svg>
     </button>
-    {showLikes ? <LikesList  likedItems={likedItems} setLikedItems={setLikedItems}/> : null}
+    {showLikes ? <LikesList  likedItems={likedItems} setLikedItems={setLikedItems} setFilled={setFilled}/> : null}
     </div>
 } 
 

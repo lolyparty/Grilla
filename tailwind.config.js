@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       colors:{
         grayish:'#f3f3f3',
-        textblue:'rgba(0, 87, 218, 0.65)',
+        textblue:'rgba(0, 87, 218, 0.75)',
         'background1':'rgba(2, 103, 255, 0.65)',
         'background2':'rgba(2, 103, 255, 0.99)',
         'ingredientColor':'#0A5F98'
@@ -13,8 +13,15 @@ module.exports = {
       scale:{
         '101':'1.01'
       },
+      maxHeight:{
+        '100':'30rem'
+        
+      },
       width:{
         '96':'25rem',
+      },
+      Height:{
+        '101': '34rem'
       },
       screens: {
         '2xl': {'max': '1535px'},
@@ -36,9 +43,6 @@ module.exports = {
         // => @media (max-width: 639px) { ... }
         'xsm':{'max':'590px'},
         'xxsm':{'max':'455px'}
-      },
-      maxHeight:{
-        '100': '34rem'
       },
       maxWidth:{
         '120':'87.5rem'

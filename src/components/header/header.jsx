@@ -4,7 +4,7 @@ import {Searchrecipe} from './searchrecipe/searchrecipe';
 import logo from '../SVGs/Grilla-Icon.svg'
 import {Likes} from './likes/likes'
 
-const Header = ({search, changed,inputValue, keyPress, showLikes, clicked, likedItems, setLikedItems})=>{
+const Header = ({search, changed,inputValue, keyPress, showLikes, clicked, likedItems, setLikedItems, setFilled})=>{
     
 
 
@@ -22,7 +22,7 @@ const Header = ({search, changed,inputValue, keyPress, showLikes, clicked, liked
             inputValue={inputValue}
             keyPress={keyPress}
         />
-        <Likes clicked={clicked} likedItems={likedItems} showLikes={showLikes} setLikedItems={setLikedItems}/>
+        <Likes clicked={clicked} likedItems={likedItems} showLikes={showLikes} setLikedItems={setLikedItems} setFilled={setFilled}/>
         {/* {showLikes ? <LikesList  likedItems={likedItems}/> : null} */}
     </div>
 }

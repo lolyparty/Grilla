@@ -1,6 +1,6 @@
 
 .recipe_name{
-    background:-webkit-linear-gradient(270deg, rgba(20, 0, 92, 0.621), rgba(0, 182, 206, 0.541));
+    background:-webkit-linear-gradient(270deg, rgb(23, 0, 107), rgb(0, 124, 206));
     -webkit-background-clip:text;
     background-clip:text;
     -webkit-text-fill-color:transparent;
