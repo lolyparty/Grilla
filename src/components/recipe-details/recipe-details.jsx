@@ -76,7 +76,7 @@ const RecipeDetails = ({likedItems, setLikedItems, setShowLikes})=>{
             setDetails(details)
             setIngredients(Math.ceil(details.ingredients.length/2))
             setIngeredientsDetails(details.ingredients)
-            setLoading(true)
+            setLoading(false)
         }
 
         getDetails()
@@ -94,18 +94,18 @@ const RecipeDetails = ({likedItems, setLikedItems, setShowLikes})=>{
                         <div className="mx-auto w-1/4 bg-gray-200 rounded-md h-12 loader overflow-hidden relative my-6"></div>
                         <div className="flex justify-center w-full">
                             <div className="w-full">
-                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-8 my-3 w-8/12 mx-auto"></div>
-                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-8 my-3 w-8/12 mx-auto"></div>
-                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-8 my-3 w-8/12 mx-auto"></div>
-                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-8 my-3 w-8/12 mx-auto"></div>
-                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-8 my-3 w-8/12 mx-auto"></div>
+                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-10 my-3 w-8/12 mx-auto"></div>
+                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-10 my-3 w-8/12 mx-auto"></div>
+                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-10 my-3 w-8/12 mx-auto"></div>
+                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-10 my-3 w-8/12 mx-auto"></div>
+                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-10 my-3 w-8/12 mx-auto"></div>
                             </div>
                             <div className="w-full">
-                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-8 my-3 w-8/12 mx-auto"></div>
-                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-8 my-3 w-8/12 mx-auto"></div>
-                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-8 my-3 w-8/12 mx-auto"></div>
-                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-8 my-3 w-8/12 mx-auto"></div>
-                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-8 my-3 w-8/12 mx-auto"></div>
+                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-10 my-3 w-8/12 mx-auto"></div>
+                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-10 my-3 w-8/12 mx-auto"></div>
+                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-10 my-3 w-8/12 mx-auto"></div>
+                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-10 my-3 w-8/12 mx-auto"></div>
+                                <div className="bg-gray-200 relative loader overflow-hidden rounded-md h-10 my-3 w-8/12 mx-auto"></div>
                             </div>
                     </div>
                 </div> : Object.keys(detailsResult).length > 0 ? <div> <div className=" w-full flex justify-center">
@@ -141,7 +141,7 @@ const RecipeDetails = ({likedItems, setLikedItems, setShowLikes})=>{
                 : null}
                 <div className="more text-center bg-gray-200 p-5 pb-9">
                     <div className="text-ingredientColor text-center my-3 xxsm:mb-1 p-2 text-xl xxsm:text-lg xxsm:text-md">
-                        <p>This <span className="font-bold">{detailsResult.title}</span> recipe was carefully curated by <span className="font-bold">{detailsResult.publisher}</span></p>.
+                        <p>This <span className="font-bold">{detailsResult.title}</span> recipe was carefully curated by <span className="font-bold">{detailsResult.publisher}.</span></p>
                         <p className="my-4 text-xl xxsm:text-lg xxsm:mt-2">Check out directions on their website.</p>
                     </div>
                     <div>

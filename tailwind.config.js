@@ -20,7 +20,7 @@ module.exports = {
       width:{
         '96':'25rem',
       },
-      Height:{
+      height:{
         '101': '34rem'
       },
       screens: {
