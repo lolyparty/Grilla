@@ -8,12 +8,12 @@ const Header = ({search, changed,inputValue, keyPress, showLikes, clicked, liked
     
 
 
-    return <div className="header flex flex-row justify-between my-2 mx-auto smm:space-x-1 relative">
-        <div className="flex basis-1/3 p-4 mdd:px-2 xsm:pr-0.5 ml-4 xxsm:ml-1 xxsm:px-0 items-center">
-            <div className="rounded-full w-20 h-20 md:w-16 md:h-16 xsm:w-12 xsm:h-12 ">
+    return <div className="header flex justify-between my-2 mx-auto smm:space-x-1 relative xxsm:my-1">
+        <div className="flex p-4 mdd:px-2 xsm:pr-0.5 ml-4 xxsm:ml-1 xxsm:px-0 items-center">
+            <div className="rounded-full w-20 h-20 md:w-16 md:h-16 xsm:w-10 xsm:h-10">
                 <img src={logo} alt="Grilla Icon" className="icon w-20 h-20 md:w-16 md:h-16 xsm:w-12 xsm:h-12 "/> 
             </div>
-            <h1 className="Grilla ml-3 mdd:ml-2 mt-5 xsm:mt-3 text-3xl md:text-2xl xsm:text-xl xxsm:mt-0">Grilla</h1>
+            <h1 className="Grilla ml-3 mdd:ml-2 mt-5 xsm:mt-3 text-3xl md:text-2xl xsm:text-xl xxsm:hidden">Grilla</h1>
         </div>
         <Searchrecipe 
             Search={search}
