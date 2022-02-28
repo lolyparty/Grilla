@@ -9,7 +9,7 @@ const Header = ({search, changed,inputValue, keyPress, showLikes, clicked, liked
 
 
     return <div className="header flex justify-between my-2 mx-auto smm:space-x-1 relative xxsm:my-1">
-        <div className="flex p-4 mdd:px-2 xsm:pr-0.5 ml-4 xxsm:ml-1 xxsm:px-0 items-center">
+        <div className="flex p-4 mdd:px-2  ml-4 xsm:pr-0.5 xsm:ml-0 xxsm:ml-1 xxsm:px-0 items-center">
             <div className="rounded-full w-20 h-20 md:w-16 md:h-16 xsm:w-10 xsm:h-10">
                 <img src={logo} alt="Grilla Icon" className="icon w-20 h-20 md:w-16 md:h-16 xsm:w-12 xsm:h-12 "/> 
             </div>

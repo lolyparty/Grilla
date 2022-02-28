@@ -12,7 +12,8 @@
     border-left-color:rgba(10, 226, 255, 0.541);
 }
 
-.skeleton{
+.skeleton::before{
+    content:'';
     width:200px;
     height: 35px;
     background: rgb(254, 254, 254);
