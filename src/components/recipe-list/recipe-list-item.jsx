@@ -3,9 +3,9 @@ import './recipe-list.css'
 import {Link} from 'react-router-dom'
 
 const RecipeListItem = ({id,image_url,title,publisher,closeLikes})=>{
-    return <Link to={`/${id}`} onClick={closeLikes} className="my-3 mx-2 shadow-lg bg-white w-96 p-3 rounded-2xl transition duration-1000 transform hover:scale-101 xxsm:max-w-xs">
+    return <Link to={`/${id}`} onClick={closeLikes} className="my-3 mx-2 shadow-lg bg-white w-96 p-3 xxsm:px-1.5 xxsm:py-4 rounded-2xl transition duration-1000 transform hover:scale-101 xxsm:max-w-xs">
                     <div className="p-1 flex xxsm:p-0">
-                        <div className="w-20 h-20 xxsm:w-14 xxsm:h-14 overflow-hidden rounded-full mt-3 flex justify-center">
+                        <div className="w-20 h-20 xxsm:w-20 xxsm:h-20 overflow-hidden rounded-full mt-3 flex justify-center">
                             <img src={image_url} alt={title} className="w-full"/>
                         </div>
                         <div className="mt-3 ml-3 text-textblue">
