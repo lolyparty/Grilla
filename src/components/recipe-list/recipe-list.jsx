@@ -61,9 +61,9 @@ const Recipelist = ({search, closeLikes, setShowLikes})=>{
         </div>
         <div className="p-8 navigationBtns justify-center flex w-full items-center"> 
 
-        <div className="w-full flex justify-center items-center">{curPage > 1 ? <button className="flex py-1 xsm:px-2 focus:outline-none rounded-xl transition duration-1000 border-2 border-textblue text-textblue text-lg" onClick={prevPage}><img className="align-middle w-8 xxsm:w-5 xsm:ml-0 xsm:pt-1" src={leftArrow} alt="Prev page" />&nbsp; Prev </button> : null}</div>
+        <div className="w-full flex justify-center items-center">{curPage > 1 ? <button className="flex px-3 py-1 xsm:px-2 focus:outline-none rounded-xl transition duration-1000 border-2 border-textblue text-textblue text-lg" onClick={prevPage}><img className="align-middle w-8 xxsm:w-5 xsm:ml-0 xsm:pt-1" src={leftArrow} alt="Prev page" />&nbsp; Prev </button> : null}</div>
 
-        <div className="w-full flex items-center justify-center">{curPage < numberofPages ? <button className="flex py-1 xsm:px-2 focus:outline-none rounded-xl transition duration-1000 border-2 border-textblue text-textblue text-lg" onClick={nextPage}>Next &nbsp;<img className="align-middle w-8 xxsm:w-5 xsm:ml-0 xsm:pt-1" src={rightArrow} alt="Next page" /></button> : null}</div>
+        <div className="w-full flex items-center justify-center">{curPage < numberofPages ? <button className="flex py-1 px-3 xsm:px-2 focus:outline-none rounded-xl transition duration-1000 border-2 border-textblue text-textblue text-lg" onClick={nextPage}>Next &nbsp;<img className="align-middle w-8 xxsm:w-5 xsm:ml-0 xsm:pt-1" src={rightArrow} alt="Next page" /></button> : null}</div>
         </div>
     </div>}
     </div>
