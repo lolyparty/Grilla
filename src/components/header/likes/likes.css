@@ -10,5 +10,11 @@
 .likescontainer::-webkit-scrollbar-thumb {
   background-color: #788DD8;
   border-radius: 8px;
-  /* outline: 1px solid slategrey; */
+  /* outline: 1px solid slategrey; */ 
+}
+
+@media (min-width: 456px) and (max-width:654px){
+  .likes_names{
+    display: none !important;
+  }
 }
