@@ -49,7 +49,7 @@ const LikesList =({likedItems,setLikedItems})=>{
                 </div>
             </div>
          ) : 
-        <div className="flex justify-center items-center h-64 max-w-xs text-center text-ingredientColor">Oops! Favourite recipes' empty, search and like recipes for them to appear here</div>}
+        <div className="flex justify-center items-center h-64 max-w-xs text-center text-ingredientColor">Oops! You don't have any favourite recipe, search and like recipes for them to appear here</div>}
     </div>
 }
 

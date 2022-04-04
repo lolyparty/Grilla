@@ -45,11 +45,13 @@ const Recipelist = ({search, closeLikes, setShowLikes})=>{
     const prevPage = (e)=>{
         e.preventDefault()
         setPage(curPage - 1)
+        window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
     const nextPage = (e)=>{
         e.preventDefault()
         setPage(curPage + 1)
+        window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
  return <div>
