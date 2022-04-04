@@ -7,6 +7,7 @@ import time from '../SVGs/time.svg'
 import MetaTags from 'react-meta-tags';
 import serving from '../SVGs/servings.svg'
 import './recipe_details.css'
+import { ShareButtons } from './shareButtons'
 
 const RecipeDetails = ({likedItems, setLikedItems, setShowLikes})=>{
     const [detailsResult, setDetails] = React.useState({})
@@ -64,8 +65,6 @@ const RecipeDetails = ({likedItems, setLikedItems, setShowLikes})=>{
             localStorage.removeItem('likes')
         }
     }
-    
-
 
     React.useEffect(()=>{
         const getDetails = async ()=>{
@@ -78,7 +77,6 @@ const RecipeDetails = ({likedItems, setLikedItems, setShowLikes})=>{
             setIngeredientsDetails(details.ingredients)
             setLoading(false)
         }
-
         getDetails()
 
 },[params.id])
@@ -87,7 +85,7 @@ const RecipeDetails = ({likedItems, setLikedItems, setShowLikes})=>{
 
                 <MetaTags>
                     <meta property="og:url"   content={`${window.location.href}`} />
-                </MetaTags>
+                </MetaTags> 
 
                 {loading ? <div className="w-full">
                         <div className="w-10/12 h-101 mx-auto bg-gray-200 relative loader overflow-hidden rounded-md"></div>
@@ -149,17 +147,7 @@ const RecipeDetails = ({likedItems, setLikedItems, setShowLikes})=>{
                     </div>
                     <div className="share">
                     <p className="mt-7 text-xl xxsm:text-base text-ingredientColor inline-block">Share this recipe with family and friends: </p>
-                    <div className="flex justify-center my-4">
-                        <div className="mr-2">
-                            <div class="fb-share-button"
-                            data-href={`https://grilla.vercel.app/${detailsResult.id}`} 
-                            data-layout="button_count" data-size="large">
-                            </div>
-                        </div>
-                        <div className="ml-4">
-                            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" data-size="large" data-text={`Guys! check out the recipe for ${detailsResult.title} on Grilla`}>Tweet</a>
-                        </div>
-                    </div>
+                    <ShareButtons params={params} detailsResult={detailsResult} />
                     </div>
                 </div> 
                 </div> : null
