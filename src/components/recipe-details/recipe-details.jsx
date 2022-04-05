@@ -147,7 +147,7 @@ const RecipeDetails = ({likedItems, setLikedItems, setShowLikes})=>{
                     </div>
                     <div className="share">
                     <p className="mt-7 text-xl xxsm:text-base text-ingredientColor inline-block">Share this recipe with family and friends: </p>
-                    <ShareButtons params={params} detailsResult={detailsResult} />
+                    <ShareButtons detailsResult={detailsResult} />
                     </div>
                 </div> 
                 </div> : null
