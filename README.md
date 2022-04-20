@@ -1,5 +1,5 @@
 # GIf demo of grilla 
-
+![Demo GIF](https://media.giphy.com/media/a0ciep5598xy2cqmmx/giphy-downsized-large.gif)
 
 # Getting Started with Create React App
 
